@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Mejorada</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(img.png);
+            background-size: cover;
+        }
+        .calculator {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 280px; /* Ajusta el ancho máximo de la calculadora */
+            width: 100%;
+        }
+        .calculator input[type="text"] {
+            width: 100%;
+            height: 60px;
+            font-size: 28px;
+            text-align: right;
+            border: none;
+            background-color: #f0f0f0;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .calculator button {
+            font-size: 24px;
+            margin: 5px;
+            border: none;
+            border-radius: 10px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .calculator button:hover {
+            background-color: #45a049;
+        }
+        .calculator button.operator {
+            background-color: #f57c00;
+        }
+        .calculator button.operator:hover {
+            background-color: #e65100;
+        }
+        .calculator button.clear {
+            background-color: #f44336;
+        }
+        .calculator button.clear:hover {
+            background-color: #d32f2f;
+        }
+        .calculator .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+            gap: 10px; /* Espaciado entre los botones */
+        }
+        .calculator button {
+            width: 100%; /* Asegura que los botones ocupen el 100% de su columna */
+            height: 60px; /* Ajusta la altura de los botones */
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <div class="grid">
+            <button onclick="clearDisplay()" class="clear">C</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('/')"
+                    class="operator">/</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')"
+                    class="operator">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('-')"
+                    class="operator">-</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendToDisplay('+')"
+                    class="operator">+</button>
+        </div>
+    </div>
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+    
+    <script>
+        function appendToDisplay(value) {
+            let display = document.getElementById('display').value;
+            
+            // No permitir que se inicie con operadores como +, -, *, /
+            if (display === '' && /[\+\-\*\/]/.test(value)) {
+                return; 
+            }
+            
+            // Evitar operadores consecutivos
+            if (/[\+\-\*\/]$/.test(display) && /[\+\-\*\/]/.test(value)) {
+                return; 
+            }
+            
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            let display = document.getElementById('display').value;
+            try {
+                // Evitar que se realicen cálculos si el último carácter es un operador
+                if (/[\+\-\*\/]$/.test(display)) {
+                    document.getElementById('display').value = 'Error';
+                    return;
+                }
+
+                let result = eval(display);
+                document.getElementById('display').value = result;
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+
+</body>
+</html>

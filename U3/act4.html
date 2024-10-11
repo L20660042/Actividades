@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes con Modal</title>
+    <style>
+        /* Aseguramos que el html y body cubran toda la pantalla */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Fondo de pantalla con un degradado que cubra toda el área visible */
+        body {
+            background: linear-gradient(to bottom, #7209b7, #3f37c0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        /* Botón de regreso */
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+
+        /* Galería de imágenes */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .gallery img {
+            width: 150px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border-radius: 8px;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal para la imagen ampliada */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galería de Imágenes</h1>
+    <div class="gallery">
+        <img src="imagen1.jpg" alt="Imagen 1" onerror="handleError(this)">
+        <img src="imagen2.jpg" alt="Imagen 2" onerror="handleError(this)">
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Botón de regreso -->
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+
+    <script>
+        // Obtener referencias al modal y la imagen dentro del modal
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("modalImage");
+        const closeBtn = document.querySelector(".close");
+
+        // Función para mostrar la imagen en el modal
+        function showModal(src) {
+            try {
+                modal.style.display = "flex";
+                modalImg.src = src;
+            } catch (error) {
+                console.error("Error mostrando el modal:", error);
+            }
+        }
+
+        // Evento para cerrar el modal
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+            modalImg.src = ""; // Limpiar la imagen
+        };
+
+        // Función para manejar los errores de carga de imagen
+        function handleError(imgElement) {
+            imgElement.src = "imagen-placeholder.jpg"; // Imagen de reserva en caso de error
+            console.warn("No se pudo cargar la imagen:", imgElement.alt);
+        }
+
+        // Añadir eventos de clic a cada imagen de la galería
+        const images = document.querySelectorAll(".gallery img");
+        images.forEach(img => {
+            img.addEventListener("click", () => showModal(img.src));
+        });
+
+        // Cerrar el modal si se hace clic fuera de la imagen
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                modalImg.src = ""; // Limpiar la imagen
+            }
+        };
+
+        // Cerrar el modal al presionar la tecla "Esc"
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                modal.style.display = "none";
+                modalImg.src = ""; // Limpiar la imagen
+            }
+        });
+    </script>
+</body>
+</html>

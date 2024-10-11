@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('./img.png');
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin: 20px 0 10px 0; /* Ajusta el espacio superior e inferior */
+        }
+        form {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto; /* Centra horizontalmente */
+            margin-top: 10px; /* Ajusta el espacio entre el formulario y el título */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: pink;
+            font-size: 14px;
+            display: none;
+            margin-top: 5px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de Registro</h1>
+    <form id="registroForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <span id="error" class="error"></span>
+        <div class="buttons">
+            <button type="submit">Enviar</button>
+            <a href="../index.html" class="back-button">Regresar al Inicio</a>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("registroForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let nombre = document.getElementById("nombre").value;
+            let errorElement = document.getElementById("error");
+
+            if (nombre.trim() === "") {
+                errorElement.textContent = "El campo de nombre no puede estar vacío.";
+                errorElement.style.display = "block";
+            } else {
+                errorElement.style.display = "none";
+                alert("Formulario enviado con éxito.");
+            }
+        });
+    </script>
+</body>
+</html>

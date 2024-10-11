@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Suma</title>
+    <style>
+        body {
+            background-image: url(img.png);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Espacio entre los botones */
+        }
+
+        button, .back-button {
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        button:hover, .back-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+    <script>
+        function sumarNumeros() {
+            // Obtener los valores de los campos de texto
+            let churpia1 = parseFloat(document.getElementById('churpia1').value);
+            let churpia2 = parseFloat(document.getElementById('churpia2').value);
+
+            // Verificar que ambos valores sean números
+            if (isNaN(churpia1) || isNaN(churpia2)) {
+                alert('Por favor, ingresa números válidos.');
+                return;
+            }
+
+            // Realizar la suma
+            let caquita = churpia1 + churpia2;
+
+            // Mostrar el resultado en una ventana emergente
+            alert('La suma de ' + churpia1 + ' + ' + churpia2 + ' es: ' + caquita);
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Formulario para Sumar Números</h1>
+        <form onsubmit="event.preventDefault(); sumarNumeros();">
+            <label for="churpia1">Primer número:</label>
+            <input type="text" id="churpia1" name="churpia1">
+
+            <label for="churpia2">Segundo número:</label>
+            <input type="text" id="churpia2" name="churpia2">
+
+            <div class="button-container">
+                <a href="../index.html" class="back-button">Regresar al Inicio</a>
+                <button type="submit">Sumar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

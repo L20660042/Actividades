@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Notas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #7209b7, #3f37c0);
+            color: #fff;
+            padding: 20px;
+            margin: 0; /* Elimina márgenes por defecto */
+            height: 100vh; /* Asegura que el fondo ocupe toda la altura */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra el contenido verticalmente */
+            align-items: center; /* Centra el contenido horizontalmente */
+        }
+        h1 {
+            margin-bottom: 20px; /* Espacio debajo del título */
+        }
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 10px;
+            width: 250px; /* Ancho del campo de entrada */
+        }
+        button, .back-button {
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover, .back-button:hover {
+            background-color: #e64a19; /* Color al pasar el mouse */
+        }
+        #notesList {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px; /* Espacio superior para la lista */
+            width: 100%; /* Asegura que la lista use todo el ancho */
+            max-width: 400px; /* Ancho máximo de la lista */
+        }
+        #notesList li {
+            background: rgba(0, 0, 0, 0.9); /* Fondo blanco semi-transparente */
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Centra el texto y botón en la lista */
+        }
+        #notesList li button {
+            background-color: #f44336; /* Color del botón de eliminar */
+        }
+        #notesList li button:hover {
+            background-color: #d32f2f; /* Color al pasar el mouse sobre el botón de eliminar */
+        }
+    </style>
+</head>
+<body>
+    <h1>Aplicación de Notas</h1>
+    <div>
+        <input type="text" id="noteInput" placeholder="Escribe una nota...">
+        <button id="addNoteButton">Agregar Nota</button>
+    </div>
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+    <ul id="notesList"></ul>
+
+    <script>
+        // Obtener elementos del DOM
+        const noteInput = document.getElementById('noteInput');
+        const addNoteButton = document.getElementById('addNoteButton');
+        const notesList = document.getElementById('notesList');
+
+        // Cargar notas al iniciar
+        window.onload = loadNotes;
+
+        // Agregar evento al botón
+        addNoteButton.addEventListener('click', addNote);
+
+        // Función para agregar una nota
+        function addNote() {
+            const noteText = noteInput.value.trim();
+            if (noteText) {
+                const notes = getNotes();
+                notes.push(noteText);
+                localStorage.setItem('notes', JSON.stringify(notes));
+                noteInput.value = ''; // Limpiar el campo de entrada
+                loadNotes();
+            }
+        }
+
+        // Función para cargar notas
+        function loadNotes() {
+            const notes = getNotes();
+            notesList.innerHTML = ''; // Limpiar la lista
+            notes.forEach((note, index) => {
+                const li = document.createElement('li');
+                li.textContent = note;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Eliminar';
+                deleteButton.onclick = () => deleteNote(index);
+                li.appendChild(deleteButton);
+                notesList.appendChild(li);
+            });
+        }
+
+        // Función para obtener notas del localStorage
+        function getNotes() {
+            const notes = localStorage.getItem('notes');
+            return notes ? JSON.parse(notes) : [];
+        }
+
+        // Función para eliminar una nota
+        function deleteNote(index) {
+            const notes = getNotes();
+            notes.splice(index, 1);
+            localStorage.setItem('notes', JSON.stringify(notes));
+            loadNotes();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #countdown {
+            font-size: 48px;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+<style>
+     .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        body {
+            background-image: url('img.png');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #000000;
+        }
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+</style>
+    <h1>Temporizador de Cuenta Atrás</h1>
+    <p id="countdown">50</p>
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+    <script>
+        // Inicializamos el valor desde el cual comenzará la cuenta atrás
+        let count = 50;
+
+        // Usamos setInterval para reducir el número cada segundo (1000ms)
+        const timer = setInterval(() => {
+            // Decrementamos el contador
+            count--;
+            // Actualizamos el contenido del elemento HTML con el nuevo valor
+            document.getElementById("countdown").textContent = count;
+
+            // Cuando llega a 0, paramos el temporizador
+            if (count === 0) {
+                clearInterval(timer);
+            }
+        }, 1000); // Intervalo de 1000 milisegundos = 1 segundo
+    </script>
+
+</body>
+</html>

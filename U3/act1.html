@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #7209b7, #3f37c0);
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            color: gray;
+            background-color: #d1ffd1;
+        }
+
+        button {
+            background-color: #ff6666;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        button.complete {
+            background-color: #66ff66;
+        }
+
+        button.completed {
+            background-color: #ffcc00;
+        }
+
+        input {
+            padding: 10px;
+            width: 70%;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        button.agregar {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 600px) {
+            input {
+                width: 60%;
+            }
+
+            button {
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+    <h1>Lista de Tareas para el día de hoy</h1>
+    <div>
+        <input type="text" id="nueva-tarea" placeholder="Agregar nueva tarea">
+        <button class="agregar" onclick="agregarTarea()">Agregar</button>
+    </div>
+
+    <ul id="lista-tareas">
+        <!-- Las tareas aparecerán aquí -->
+    </ul>
+
+    <script>
+        let tareas = [];
+        const listaTareas = document.getElementById('lista-tareas');
+
+        function renderizarTareas() {
+            listaTareas.innerHTML = '';
+            tareas.forEach((tarea, index) => {
+                const li = document.createElement('li');
+                li.className = tarea.completada ? 'completed' : '';
+                li.innerHTML = `
+                    ${tarea.texto}
+                    <div>
+                        <button class="${tarea.completada ? 'completed' : 'complete'}" onclick="completarTarea(${index})">
+                            ${tarea.completada ? '✘' : '✔'}
+                        </button>
+                        <button onclick="eliminarTarea(${index})">🗑</button>
+                    </div>
+                `;
+                listaTareas.appendChild(li);
+            });
+        }
+
+        function agregarTarea() {
+            const input = document.getElementById('nueva-tarea');
+            const texto = input.value.trim();
+            if (texto !== '') {
+                tareas.push({ texto, completada: false });
+                input.value = '';
+                renderizarTareas();
+            }
+        }
+
+        function eliminarTarea(index) {
+            tareas.splice(index, 1);
+            renderizarTareas();
+        }
+
+        function completarTarea(index) {
+            tareas[index].completada = !tareas[index].completada;
+            renderizarTareas();
+        }
+
+        renderizarTareas();
+    </script>
+</body>
+</html>

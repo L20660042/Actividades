@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Imagen</title>
+    <style>
+        body {
+            background-image: url('img.png');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            border: 5px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1976D2;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cambiar imagen con un botón</h1>
+    
+    <div class="image-container">
+        <!-- Imagen que se va a cambiar -->
+        <img id="miImagen" src="imagen1.jpg" alt="Imagen" width="300">
+    </div>
+
+    <!-- Botón que cambiará la imagen -->
+    <button class="btn" onclick="cambiarImagen()">Cambiar Imagen</button>
+
+    <!-- Enlace de regreso -->
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+
+    <!-- Script JavaScript -->
+    <script>
+        function cambiarImagen() {
+            // Referencia a la imagen
+            var imagen = document.getElementById("miImagen");
+            
+            // Comprobar qué imagen está actualmente en pantalla
+            if (imagen.src.includes("imagen1.jpg")) {
+                // Cambiar a la segunda imagen
+                imagen.src = "imagen2.jpg";
+            } else {
+                // Volver a la primera imagen
+                imagen.src = "imagen1.jpg";
+            }
+        }
+    </script>
+</body>
+</html>

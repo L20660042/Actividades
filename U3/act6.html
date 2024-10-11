@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Medidas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(#7209b7, #3f37c0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .converter {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h1>Convertidor de Distancias</h1>
+
+        <div class="input-group">
+            <label for="inputValue">Valor a convertir:</label>
+            <input type="number" id="inputValue" placeholder="Ingrese valor">
+        </div>
+
+        <div class="input-group">
+            <label for="inputUnit">Unidad de entrada:</label>
+            <select id="inputUnit">
+                <option value="meters">Metros</option>
+                <option value="kilometers">Kilómetros</option>
+                <option value="miles">Millas</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="outputUnit">Unidad de salida:</label>
+            <select id="outputUnit">
+                <option value="meters">Metros</option>
+                <option value="kilometers">Kilómetros</option>
+                <option value="miles">Millas</option>
+            </select>
+        </div>
+
+        <button onclick="convert()">Convertir</button>
+
+        <div class="input-group">
+            <label for="outputValue">Resultado:</label>
+            <input type="text" id="outputValue" readonly>
+        </div>
+    </div>
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+    <script>
+        function convert() {
+            const inputValue = parseFloat(document.getElementById("inputValue").value);
+            const inputUnit = document.getElementById("inputUnit").value;
+            const outputUnit = document.getElementById("outputUnit").value;
+            let result;
+
+            if (isNaN(inputValue)) {
+                alert("Por favor ingrese un valor válido.");
+                return;
+            }
+
+            // Convertir todo a metros como base
+            let valueInMeters;
+            switch (inputUnit) {
+                case "meters":
+                    valueInMeters = inputValue;
+                    break;
+                case "kilometers":
+                    valueInMeters = inputValue * 1000;
+                    break;
+                case "miles":
+                    valueInMeters = inputValue * 1609.344;
+                    break;
+            }
+
+            // Convertir de metros a la unidad de salida
+            switch (outputUnit) {
+                case "meters":
+                    result = valueInMeters;
+                    break;
+                case "kilometers":
+                    result = valueInMeters / 1000;
+                    break;
+                case "miles":
+                    result = valueInMeters / 1609.344;
+                    break;
+            }
+
+            // Mostrar el resultado
+            document.getElementById("outputValue").value = result.toFixed(4);
+        }
+    </script>
+</body>
+</html>

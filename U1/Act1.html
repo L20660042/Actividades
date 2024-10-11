@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url('https://th.bing.com/th/id/R.6016cdb95f6c0cfc9ff3c91767018363?rik=RHKbibNn8akW5g&pid=ImgRaw&r=0');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat; 
+            height: 100vh; 
+            margin: 0;
+        }
+
+        h1 {
+            color: red; 
+            text-align: center;
+            padding-top: 40vh; 
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="Soyelid">Cargando...</h1>
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+    <script>
+        function mostrarMensaje() {
+            const mensajeDiv = document.getElementById('Soyelid');
+            mensajeDiv.innerHTML = `No me gusta la programación!`;
+        }
+
+        window.onload = function() {
+            mostrarMensaje();
+        };
+    </script>
+</body>
+</html>

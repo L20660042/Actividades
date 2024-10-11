@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Interactivo</title>
+    <style>
+        body {
+            background-image: url('img.png');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #ff5722;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1976D2;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+    <script>
+        // Inicializar la variable contador
+        let contador = 0;
+
+        // Función para aumentar el contador
+        function subirparriba() {
+            contador++;
+            actualizarContador();
+        }
+
+        // Función para disminuir el contador
+        function bajarpabajo() {
+            contador--;
+            actualizarContador();
+        }
+
+        // Función para actualizar el contador en el DOM
+        function actualizarContador() {
+            document.getElementById('contador').innerText = contador;
+        }
+    </script>
+</head>
+<body>
+    <h1>Contador Interactivo</h1>
+    <p>Valor del contador: <span id="contador">0</span></p>
+
+    <button onclick="subirparriba()">Subir</button>
+    <button onclick="bajarpabajo()">Bajar</button>
+
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+</body>
+</html>

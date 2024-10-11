@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla con Filtro en Tiempo Real</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #7209b7, #3f37c0);
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden; /* Para el borde redondeado */
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        th {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        input {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #e64a19;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+    <h2>Filtrar tabla en tiempo real</h2>
+    <input type="text" id="searchInput" placeholder="Buscar...">
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Ciudad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Juan Pérez</td>
+                <td>28</td>
+                <td>Madrid</td>
+            </tr>
+            <tr>
+                <td>María Gómez</td>
+                <td>35</td>
+                <td>Barcelona</td>
+            </tr>
+            <tr>
+                <td>Carlos López</td>
+                <td>22</td>
+                <td>Valencia</td>
+            </tr>
+            <tr>
+                <td>Laura Martínez</td>
+                <td>40</td>
+                <td>Sevilla</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Obtener elementos
+        const searchInput = document.getElementById("searchInput");
+        const dataTable = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+
+        // Evento de filtro en tiempo real
+        searchInput.addEventListener("keyup", function() {
+            const filter = searchInput.value.toLowerCase();
+            const rows = dataTable.getElementsByTagName("tr");
+
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName("td");
+                let match = false;
+                
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].textContent.toLowerCase().includes(filter)) {
+                        match = true;
+                        break;
+                    }
+                }
+
+                rows[i].style.display = match ? "" : "none";
+            }
+        });
+    </script>
+</body>
+</html>

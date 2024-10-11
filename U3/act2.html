@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #7209b7, #3f37c0);
+            margin: 0;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .result, .computer-choice {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-button">Regresar al Inicio</a>
+    <div class="container">
+        <h1>Piedra, Papel o Tijera</h1>
+        <p>Selecciona tu jugada:</p>
+        <button onclick="playGame('piedra')" style="background-color: #4caf50;">Piedra</button>
+        <button onclick="playGame('papel')" style="background-color: #2196F3;">Papel</button>
+        <button onclick="playGame('tijera')" style="background-color: #ffeb3b;">Tijera</button>
+
+        <!-- Muestra la elección de la computadora -->
+        <div class="computer-choice" id="computer-choice"></div>
+        <!-- Muestra el resultado del juego -->
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function playGame(userChoice) {
+            const choices = ['piedra', 'papel', 'tijera'];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+            // Muestra la elección de la computadora
+            document.getElementById('computer-choice').innerText = `La computadora eligió: ${computerChoice}`;
+
+            // Lógica del juego
+            let result = '';
+            if (userChoice === computerChoice) {
+                result = `Empate. Ambos eligieron ${userChoice}.`;
+            } else if (
+                (userChoice === 'piedra' && computerChoice === 'tijera') ||
+                (userChoice === 'papel' && computerChoice === 'piedra') ||
+                (userChoice === 'tijera' && computerChoice === 'papel')
+            ) {
+                result = `¡Ganaste! ${userChoice} vence a ${computerChoice}.`;
+            } else {
+                result = `¡Perdiste! ${computerChoice} vence a ${userChoice}.`;
+            }
+
+            // Muestra el resultado del juego
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
