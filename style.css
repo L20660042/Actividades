@@ -1,0 +1,460 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #00ffee;
+}
+
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 4rem 12%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    text-shadow: 0 0 25px var(--main-color);
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 12%;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    text-align: left;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.home-content h3 {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-size: 3.5rem;
+}
+
+.home-content h1 {
+    font-size: 7rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+
+.home-content p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 1000px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem;
+    transition: 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: var(--text-color);
+    transform: scale(1.3) translateY(-5px);
+    box-shadow: 0 0 25px var(--main-color);
+    background-color: var(--main-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    box-shadow: 0 0 25px var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: black;
+    border: 2px solid transparent;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px var(--main-color);
+}
+
+/* Contenedor de actividades y vista previa */
+.activities-container {
+    display: flex;
+    flex-direction: column; /* Por defecto, en una columna en pantallas pequeñas */
+    gap: 2rem;
+}
+
+.activities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.preview {
+    position: sticky;
+    top: 50px; /* Coloca la vista previa 50px por debajo del encabezado cuando el usuario se desplaza */
+    background-color: var(--second-bg-color);
+    padding: 2rem;
+    box-shadow: 0 0 25px var(--main-color);
+    border-radius: 10px;
+    height: 800px; /* Mantener la altura de la vista previa */
+    width: 80%; /* Mantener el ancho de la vista previa */
+    align-self: flex-start;
+    margin-left: 2rem; /* Aseguramos que no toque el borde izquierdo */
+}
+
+.preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Aumentar tamaño de los títulos */
+h2 {
+    font-size: 4rem; /* Aumentar tamaño de los títulos principales */
+    font-weight: 700;
+    color: var(--main-color);
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px var(--main-color);
+}
+
+/* Aumentar tamaño de los títulos de las actividades */
+.unit h3 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--main-color);
+    text-shadow: 0 0 15px var(--main-color);
+}
+
+/* Ocultar la vista previa en pantallas pequeñas */
+@media (max-width: 768px) {
+    .preview {
+        display: none; /* Ocultar el cuadro de vista previa */
+    }
+}
+
+/* Diseño en dos columnas para pantallas grandes */
+@media (min-width: 768px) {
+    .activities-container {
+        flex-direction: row; /* Cambiar a dos columnas */
+    }
+
+    .activities-list {
+        flex: 0.8; /* Para que ocupe más espacio */
+    }
+
+    .preview {
+        flex: 1; /* Vista previa a la derecha */
+        height: 500px; /* Aumentar la altura de la vista previa */
+        width: 1500px; /* Aumentamos el ancho de la vista previa */
+    }
+}
+
+.unit ul {
+    list-style: none;
+    padding: 0;
+}
+
+.unit ul li {
+    margin-bottom: 1rem;
+}
+
+.unit ul li a {
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 0 10px var(--main-color);
+}
+
+.unit ul li a:hover {
+    color: var(--bg-color);
+    background-color: var(--main-color);
+    box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
+    transform: scale(1.05);
+}
+/* Animación de texto */
+.text-animation {
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.text-animation span {
+    position: relative;
+}
+
+.text-animation span::before {
+    content: 'Web Developer';
+    color: var(--main-color);
+    animation: words 20s infinite;
+}
+
+.text-animation span::after {
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 80px);
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid var(--main-color);
+    }
+}
+
+@keyframes words {
+    0%,
+    20% {
+        content: 'Frontend Web Developer';
+    }
+    21%,
+    40% {
+        content: 'App Developer';
+    }
+    41%,
+    60% {
+        content: 'UI / UX Designer';
+    }
+    61%,
+    81%,
+    100% {
+        content: '';
+    }
+}
+
+@keyframes typing {
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95% {
+        width: 0;
+    }
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85% {
+        width: calc(100% + 8px);
+    }
+}
+/* Estilo para el título "Vista Previa" */
+.preview #preview-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Ocultar la vista previa en pantallas pequeñas */
+@media (max-width: 768px) {
+    .preview {
+        display: none;
+    }
+}
+
+/* Ajustes para el menú */
+@media (max-width: 768px) {
+    .navbar {
+        display: none; /* El menú está oculto por defecto */
+        position: absolute;
+        top: 60px; /* Espacio debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-color); /* Color de fondo */
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        z-index: 9999; /* Asegúrate de que el menú esté por encima de otros elementos */
+    }
+
+    #menu-icon {
+        display: block; /* Mostrar el ícono del menú */
+        position: absolute;
+        right: 20px; /* Pegado a la derecha */
+        top: 20px; /* Opcional: ajusta para alinearlo verticalmente */
+        cursor: pointer; /* Aseguramos que el ícono de menú siempre tenga un cursor pointer */
+    }
+}
+
+/* En pantallas grandes, el menú está visible */
+@media (min-width: 769px) {
+    .navbar {
+        display: flex; /* El menú es visible siempre en pantallas grandes */
+    }
+    #menu-icon {
+        display: none; /* Ocultar el ícono en pantallas grandes */
+    }
+}
+
+/* Mostrar el menú cuando la clase active está presente */
+.navbar.active {
+    display: flex;
+}
+
+/* Estilos básicos para el menú */
+@media (max-width: 768px) {
+    .navbar {
+        display: none; /* Menú oculto por defecto */
+        position: fixed; /* Lo hacemos fijo en la parte superior */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Ocupa toda la pantalla */
+        background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro y semi-translúcido */
+        flex-direction: column;
+        justify-content: center; /* Centra los elementos verticalmente */
+        align-items: center;
+        z-index: 1000; /* Aseguramos que el menú esté encima de otros elementos */
+        transition: transform 0.3s ease; /* Añadimos transición suave */
+        transform: translateX(-100%); /* El menú comienza oculto a la izquierda */
+    }
+
+    .navbar.active {
+        display: flex;
+        transform: translateX(0); /* El menú se mueve a la vista cuando está activo */
+    }
+
+    /* Estilo para los enlaces dentro del menú cuando está desplegado */
+    .navbar a {
+        display: block;
+        margin: 1rem 0; /* Espaciado entre los enlaces */
+        font-size: 1.5rem; /* Tamaño de fuente más grande */
+        color: #fff; /* Color blanco para los enlaces */
+        text-decoration: none;
+        transition: color 0.3s; /* Transición suave para color */
+        padding: 10px;
+    }
+
+    .navbar a:hover {
+        color: #f39c12; /* Color cuando el enlace es hover (amarillo por ejemplo) */
+    }
+
+    /* Estilo del ícono del menú cuando está activado */
+    #menu-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 9999; /* Aseguramos que esté encima del menú */
+        cursor: pointer;
+        font-size: 2.5rem; /* Tamaño más grande */
+        color: #fff;
+    }
+
+    #menu-icon.active {
+        color: #00ffee; /* Cambiamos el color del icono cuando el menú está abierto */
+    }
+
+    /* Estilos para el fondo del menú */
+    .navbar.active {
+        background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro y semi-translúcido cuando está abierto */
+    }
+}
+
+/* En pantallas grandes, el menú se muestra normalmente */
+@media (min-width: 769px) {
+    .navbar {
+        display: flex; /* Menú visible en todo momento */
+        background-color: transparent; /* No necesitamos un fondo en pantallas grandes */
+        justify-content: flex-start; /* Alineación de los enlaces hacia la izquierda */
+    }
+    #menu-icon {
+        display: none; /* Ocultar el ícono del menú en pantallas grandes */
+    }
+}

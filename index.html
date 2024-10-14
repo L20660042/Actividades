@@ -3,100 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redireccionar a los HTML</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-image: url(Img.jpg); /* Ruta de la imagen de fondo */
-            background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
-            background-position: center; /* Centra la imagen */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: white; /* Cambia el color del texto si es necesario */
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 800px; /* Aumentar el ancho para acomodar listas horizontales */
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        h2 {
-            color: #4CAF50;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-            display: flex; /* Usar flexbox para disposición horizontal */
-            flex-wrap: wrap; /* Permitir que se envuelvan los elementos en caso de que no quepan en una sola línea */
-            justify-content: center; /* Centrar elementos en la lista */
-        }
-
-        ul li {
-            margin: 10px; /* Añadir margen entre los elementos */
-        }
-
-        a {
-            text-decoration: none;
-            color: #333;
-            font-size: 1.1em;
-            padding: 10px 15px;
-            display: inline-block;
-            background-color: #e0f7fa;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        a:hover {
-            background-color: #b2ebf2;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <!-- Iconos -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Portfolio</title>
 </head>
 <body>
-    <div class="card">
-        <h1>Redirección a Actividades HTML</h1>
+<header class="header">
+    <a href="#home" class="logo">Portafolio
+        <span>Luis</span>
+        <i class='bx bx-menu' id="menu-icon"></i>
+    </a>
+    <nav class="navbar">
+        <a href="#unit1">Fácil</a>
+        <a href="#unit3">Medio</a>
+        <a href="#unit4">Difícil</a>
+        <a href="#home" class="contact-link">Contáctame</a>
+    </nav>
+</header>
 
-        <h2>Primeros Ejercicios</h2>
-        <ul>
-            <li><a href="U1/Act1.html">Actividad 1</a></li>
-            <li><a href="U1/Act2.html">Actividad 2</a></li>
-            <li><a href="U1/Act3.html">Actividad 3</a></li>
-            <li><a href="U1/Act4.html">Actividad 4</a></li>
-            <li><a href="U1/Act5.html">Actividad 5</a></li>
-            <li><a href="U1/Act6.html">Actividad 6</a></li>
-            <li><a href="U1/Act7.html">Actividad 7</a></li>
-        </ul>
+<!-- Sección de Home -->
+<section class="home" id="home">
+    <div class="home-content">
+        <h1>Hola, soy <span>Luis Jesús Arzola Ibarra</span></h1>
+        <h3 class="text-animation">Hola <span></span></h3>
+        <p>Portafolio para guardar las actividades realizadas en la materia de programación web</p>
+        <div class="social-icons">
+            <a href="https://teams.microsoft.com/l/chat/0/0?users=l20660042@matehuala.tecnm.mx" target="_blank">
+                <i class='bx bxl-microsoft-teams'></i>
+            </a>    
+            <a href="https://github.com/L20660042" target="_blank">
+                <i class='bx bxl-github'></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class='bx bxl-instagram-alt'></i>
+            </a>
+            <a href="https://wa.me/4881749435?text=Hola,%20me%20gustaría%20saber%20más%20sobre%20tus%20servicios" target="_blank">
+                <i class='bx bxl-whatsapp'></i>
+            </a>
+        </div>
+        <div class="btn-group" id="contact">
+            <a href="mailto:luistoarzola@gmail.com" class="btn">Contáctame</a>
+        </div>
+    </div>  
+</section>
 
-        <h2>Segundos Ejercicios</h2>
-        <ul>
-            <li><a href="U3/act1.html">Actividad 1</a></li>
-            <li><a href="U3/act2.html">Actividad 2</a></li>
-            <li><a href="U3/act3.html">Actividad 3</a></li>
-            <li><a href="U3/act4.html">Actividad 4</a></li>
-            <li><a href="U3/act5.html">Actividad 5</a></li>
-            <li><a href="U3/act6.html">Actividad 6</a></li>
-            <li><a href="U3/act7.html">Actividad 7</a></li>
-            <li><a href="U3/act9.html">Actividad 9</a></li>
-        </ul>
-        <h2>Terceros Ejercicios</h2>
-        <ul>
-            <li><a href="U4/act1.html">Actividad 1</a></li>
-            <li><a href="U4/act3.html">Actividad 3</a></li>
-        </ul>
+<!-- Sección de Actividades -->
+<section class="activities" id="activities">
+    <h2>Actividades por nivel</h2>
+    
+    <div class="activities-container">
+        <div class="activities-list">
+            <div class="unit" id="unit1">
+                <h3>Fácil</h3>
+                <ul>
+                    <li>
+                        <a href="U1/Act1.html" class="btn" onmouseover="loadPreview('U1/Act1.html')">
+                            <i class='bx bxs-image' style="margin-right: 10px;"></i>
+                            Actividad 1 Imagen de fondo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U1/Act2.html" class="btn" onmouseover="loadPreview('U1/Act2.html')">
+                            <i class='bx bxs-paint' style="margin-right: 10px;"></i>
+                            Actividad 2 Cambio de colores
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U1/Act3.html" class="btn" onmouseover="loadPreview('U1/Act3.html')">
+                            <i class='bx bxs-file' style="margin-right: 10px;"></i>
+                            Actividad 3 Formulario
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U1/Act4.html" class="btn" onmouseover="loadPreview('U1/Act4.html')">
+                            <i class='bx bxs-plus-circle' style="margin-right: 10px;"></i>
+                            Actividad 4 Suma de dos números
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U1/Act5.html" class="btn" onmouseover="loadPreview('U1/Act5.html')">
+                            <i class='bx bxs-check-square' style="margin-right: 10px;"></i>
+                            Actividad 5 Contador
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U1/Act6.html" class="btn" onmouseover="loadPreview('U1/Act6.html')">
+                            <i class='bx bxs-image-add' style="margin-right: 10px;"></i>
+                            Actividad 6 Cambiar imagen
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U1/Act7.html" class="btn" onmouseover="loadPreview('U1/Act7.html')">
+                            <i class='bx bxs-hourglass' style="margin-right: 10px;"></i>
+                            Actividad 7 Temporizador
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="unit" id="unit3">
+                <h3>Medio</h3>
+                <ul>
+                    <li>
+                        <a href="U3/act1.html" class="btn" onmouseover="loadPreview('U3/act1.html')">
+                            <i class='bx bx-list-check' style="margin-right: 10px;"></i>
+                            Actividad 1 Lista de tareas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U3/act2.html" class="btn" onmouseover="loadPreview('U3/act2.html')">
+                            <i class='bx bx-game' style="margin-right: 10px;"></i>
+                            Actividad 2 Piedra, Papel o Tijera
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U3/act3.html" class="btn" onmouseover="loadPreview('U3/act3.html')">
+                            <i class='bx bx-search' style="margin-right: 10px;"></i>
+                            Actividad 3 Búsqueda
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U3/act4.html" class="btn" onmouseover="loadPreview('U3/act4.html')">
+                            <i class='bx bx-image' style="margin-right: 10px;"></i>
+                            Actividad 4 Galería
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U3/act5.html" class="btn" onmouseover="loadPreview('U3/act5.html')">
+                            <i class='bx bx-calculator' style="margin-right: 10px;"></i>
+                            Actividad 5 Calculadora
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U3/act6.html" class="btn" onmouseover="loadPreview('U3/act6.html')">
+                            <i class='bx bx-ruler' style="margin-right: 10px;"></i>
+                            Actividad 6 Convertidor
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U3/act7.html" class="btn" onmouseover="loadPreview('U3/act7.html')">
+                            <i class='bx bx-file-blank' style="margin-right: 10px;"></i>
+                            Actividad 7 Contador de palabras
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U3/act9.html" class="btn" onmouseover="loadPreview('U3/act9.html')">
+                            <i class='bx bx-timer' style="margin-right: 10px;"></i>
+                            Actividad 9 Cronómetro
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="unit" id="unit4">
+                <h3>Dificil</h3>
+                <ul>
+                    <li>
+                        <a href="U4/act1.html" class="btn" onmouseover="loadPreview('U4/act1.html')">
+                            <i class='bx bx-image' style="margin-right: 10px;"></i>
+                            Actividad 1 Imágenes Random
+                        </a>
+                    </li>
+                    <li>
+                        <a href="U4/act3.html" class="btn" onmouseover="loadPreview('U4/act3.html')">
+                            <i class='bx bxs-save' style="margin-right: 10px;"></i>
+                            Actividad 3 Almacenamiento de lista
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Vista previa de la actividad (a la derecha) -->
+        <div class="preview">
+            <h3 id="preview-title">Vista Previa</h3>
+            <iframe id="preview-frame" src="" frameborder="0"></iframe>
+        </div>
     </div>
+</section>
+
+<script>
+// Función para abrir/cerrar el menú
+document.getElementById("menu-icon").addEventListener("click", function (event) {
+    event.preventDefault();  // Evitar el comportamiento por defecto del enlace (si es necesario)
+    
+    const navbar = document.querySelector(".navbar");
+    const menuIcon = document.getElementById("menu-icon");
+    
+    // Alternar la clase 'active' en el menú y el ícono del menú
+    navbar.classList.toggle("active");
+    menuIcon.classList.toggle("active"); // Cambiar el ícono para mostrar el menú abierto/cerrado
+});
+
+// Función para cerrar el menú cuando se hace clic en un enlace
+const menuLinks = document.querySelectorAll('.navbar a');
+menuLinks.forEach(link => {
+    link.addEventListener('click', function () {
+        const navbar = document.querySelector(".navbar");
+        const menuIcon = document.getElementById("menu-icon");
+        
+        // Eliminar la clase 'active' para cerrar el menú
+        navbar.classList.remove("active");
+        menuIcon.classList.remove("active"); // Restablecer el ícono
+    });
+});
+
+    function loadPreview(activityUrl) {
+        var iframe = document.getElementById('preview-frame');
+        iframe.src = activityUrl;
+        iframe.style.pointerEvents = 'none'; // Deshabilitar interacción
+    }
+</script>
+
 </body>
 </html>
