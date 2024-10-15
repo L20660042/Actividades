@@ -4,95 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- Iconos -->
+    <!-- Iconos de Boxicons para añadir iconografía en los enlaces -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Portfolio</title>
 </head>
 <body>
+
+<!-- Cabecera fija con el logo y la barra de navegación -->
 <header class="header">
+    <!-- Logo con enlace a la sección "home" -->
     <a href="#home" class="logo">Portafolio
-        <span>Luis</span>
-        <i class='bx bx-menu' id="menu-icon"></i>
+        <span>Luis</span> <!-- Nombre destacado al lado del logo -->
+        <i class='bx bx-menu' id="menu-icon"></i> <!-- Icono de menú desplegable para dispositivos móviles -->
     </a>
+
+    <!-- Barra de navegación que permite desplazarse a las diferentes secciones -->
     <nav class="navbar">
-        <a href="#unit1">Fácil</a>
-        <a href="#unit3">Medio</a>
-        <a href="#unit4">Difícil</a>
-        <a href="#home" class="contact-link">Contáctame</a>
+        <a href="#unit1">Fácil</a> <!-- Enlace a la sección de actividades fáciles -->
+        <a href="#unit3">Medio</a> <!-- Enlace a la sección de actividades de nivel medio -->
+        <a href="#unit4">Difícil</a> <!-- Enlace a la sección de actividades difíciles -->
+        <a href="#home" class="contact-link">Contáctame</a> <!-- Enlace a la sección de contacto -->
     </nav>
 </header>
 
-<!-- Sección de Home -->
+<!-- Sección de Home, introducción al portafolio -->
 <section class="home" id="home">
     <div class="home-content">
-        <h1>Hola, soy <span>Luis Jesús Arzola Ibarra</span></h1>
+        <!-- Título principal con el nombre del autor -->
+        <h1>Hola, soy <span>Luis Jesús Arzola Ibarra</span></h1> 
+        <!-- Texto animado de bienvenida -->
         <h3 class="text-animation">Hola <span></span></h3>
+        <!-- Breve descripción del propósito del portafolio -->
         <p>Portafolio para guardar las actividades realizadas en la materia de programación web</p>
+
+        <!-- Íconos sociales con enlaces a diferentes redes sociales y plataformas -->
         <div class="social-icons">
+            <!-- Enlace a Microsoft Teams -->
             <a href="https://teams.microsoft.com/l/chat/0/0?users=l20660042@matehuala.tecnm.mx" target="_blank">
-                <i class='bx bxl-microsoft-teams'></i>
+                <i class='bx bxl-microsoft-teams'></i> <!-- Icono de Microsoft Teams -->
             </a>    
+            <!-- Enlace a GitHub -->
             <a href="https://github.com/L20660042" target="_blank">
-                <i class='bx bxl-github'></i>
+                <i class='bx bxl-github'></i> <!-- Icono de GitHub -->
             </a>
+            <!-- Enlace a Instagram (sin URL definida aún) -->
             <a href="#" target="_blank">
-                <i class='bx bxl-instagram-alt'></i>
+                <i class='bx bxl-instagram-alt'></i> <!-- Icono de Instagram -->
             </a>
+            <!-- Enlace a WhatsApp con mensaje predefinido -->
             <a href="https://wa.me/4881749435?text=Hola,%20me%20gustaría%20saber%20más%20sobre%20tus%20servicios" target="_blank">
-                <i class='bx bxl-whatsapp'></i>
+                <i class='bx bxl-whatsapp'></i> <!-- Icono de WhatsApp -->
             </a>
         </div>
+
+        <!-- Botón de contacto para enviar un correo -->
         <div class="btn-group" id="contact">
-            <a href="mailto:luistoarzola@gmail.com" class="btn">Contáctame</a>
+            <a href="mailto:luistoarzola@gmail.com" class="btn">Contáctame</a> <!-- Enlace para abrir la aplicación de correo -->
         </div>
     </div>  
 </section>
 
-<!-- Sección de Actividades -->
+<!-- Sección de actividades dividida por niveles -->
 <section class="activities" id="activities">
-    <h2>Actividades por nivel</h2>
-    
+    <h2>Actividades por nivel</h2> <!-- Título de la sección -->
+
+    <!-- Contenedor para las actividades y la vista previa -->
     <div class="activities-container">
+        
+        <!-- Lista de actividades del nivel fácil -->
         <div class="activities-list">
             <div class="unit" id="unit1">
-                <h3>Fácil</h3>
+                <h3>Fácil</h3> <!-- Título para actividades fáciles -->
                 <ul>
+                    <!-- Enlace a la actividad 1 (Imagen de fondo) -->
                     <li>
                         <a href="U1/Act1.html" class="btn" onmouseover="loadPreview('U1/Act1.html')">
                             <i class='bx bxs-image' style="margin-right: 10px;"></i>
                             Actividad 1 Imagen de fondo
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 2 (Cambio de colores) -->
                     <li>
                         <a href="U1/Act2.html" class="btn" onmouseover="loadPreview('U1/Act2.html')">
                             <i class='bx bxs-paint' style="margin-right: 10px;"></i>
                             Actividad 2 Cambio de colores
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 3 (Formulario) -->
                     <li>
                         <a href="U1/Act3.html" class="btn" onmouseover="loadPreview('U1/Act3.html')">
                             <i class='bx bxs-file' style="margin-right: 10px;"></i>
                             Actividad 3 Formulario
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 4 (Suma de dos números) -->
                     <li>
                         <a href="U1/Act4.html" class="btn" onmouseover="loadPreview('U1/Act4.html')">
                             <i class='bx bxs-plus-circle' style="margin-right: 10px;"></i>
                             Actividad 4 Suma de dos números
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 5 (Contador) -->
                     <li>
                         <a href="U1/Act5.html" class="btn" onmouseover="loadPreview('U1/Act5.html')">
                             <i class='bx bxs-check-square' style="margin-right: 10px;"></i>
                             Actividad 5 Contador
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 6 (Cambiar imagen) -->
                     <li>
                         <a href="U1/Act6.html" class="btn" onmouseover="loadPreview('U1/Act6.html')">
                             <i class='bx bxs-image-add' style="margin-right: 10px;"></i>
                             Actividad 6 Cambiar imagen
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 7 (Temporizador) -->
                     <li>
                         <a href="U1/Act7.html" class="btn" onmouseover="loadPreview('U1/Act7.html')">
                             <i class='bx bxs-hourglass' style="margin-right: 10px;"></i>
@@ -102,101 +128,114 @@
                 </ul>
             </div>
 
+            <!-- Lista de actividades del nivel medio -->
             <div class="unit" id="unit3">
-                <h3>Medio</h3>
+                <h3>Medio</h3> <!-- Título para actividades de nivel medio -->
                 <ul>
+                    <!-- Enlace a la actividad 1 (Lista de tareas) -->
                     <li>
                         <a href="U3/act1.html" class="btn" onmouseover="loadPreview('U3/act1.html')">
                             <i class='bx bx-list-check' style="margin-right: 10px;"></i>
                             Actividad 1 Lista de tareas
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 2 (Piedra, Papel o Tijera) -->
                     <li>
                         <a href="U3/act2.html" class="btn" onmouseover="loadPreview('U3/act2.html')">
                             <i class='bx bx-game' style="margin-right: 10px;"></i>
                             Actividad 2 Piedra, Papel o Tijera
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 3 (Búsqueda) -->
                     <li>
                         <a href="U3/act3.html" class="btn" onmouseover="loadPreview('U3/act3.html')">
                             <i class='bx bx-search' style="margin-right: 10px;"></i>
                             Actividad 3 Búsqueda
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 4 (Galería) -->
                     <li>
                         <a href="U3/act4.html" class="btn" onmouseover="loadPreview('U3/act4.html')">
                             <i class='bx bx-image' style="margin-right: 10px;"></i>
                             Actividad 4 Galería
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 5 (Calculadora) -->
                     <li>
                         <a href="U3/act5.html" class="btn" onmouseover="loadPreview('U3/act5.html')">
                             <i class='bx bx-calculator' style="margin-right: 10px;"></i>
                             Actividad 5 Calculadora
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 6 (Formulario dinámico) -->
                     <li>
                         <a href="U3/act6.html" class="btn" onmouseover="loadPreview('U3/act6.html')">
-                            <i class='bx bx-ruler' style="margin-right: 10px;"></i>
-                            Actividad 6 Convertidor
-                        </a>
-                    </li>
-                    <li>
-                        <a href="U3/act7.html" class="btn" onmouseover="loadPreview('U3/act7.html')">
-                            <i class='bx bx-file-blank' style="margin-right: 10px;"></i>
-                            Actividad 7 Contador de palabras
-                        </a>
-                    </li>
-                    <li>
-                        <a href="U3/act9.html" class="btn" onmouseover="loadPreview('U3/act9.html')">
-                            <i class='bx bx-timer' style="margin-right: 10px;"></i>
-                            Actividad 9 Cronómetro
+                            <i class='bx bxs-file' style="margin-right: 10px;"></i>
+                            Actividad 6 Formulario dinámico
                         </a>
                     </li>
                 </ul>
             </div>
 
+            <!-- Lista de actividades del nivel difícil -->
             <div class="unit" id="unit4">
-                <h3>Dificil</h3>
+                <h3>Difícil</h3> <!-- Título para actividades difíciles -->
                 <ul>
+                    <!-- Enlace a la actividad 1 (Imágenes Random) -->
                     <li>
                         <a href="U4/act1.html" class="btn" onmouseover="loadPreview('U4/act1.html')">
                             <i class='bx bx-image' style="margin-right: 10px;"></i>
                             Actividad 1 Imágenes Random
                         </a>
                     </li>
+                    <!-- Enlace a la actividad 2 (Juego de Memoria) -->
+                    <li>
+                        <a href="U4/act2.html" class="btn" onmouseover="loadPreview('U4/act2.html')">
+                            <i class='bx bx-memory-card' style="margin-right: 10px;"></i>
+                            Actividad 2 Juego de Memoria
+                        </a>
+                    </li>
+                    <!-- Enlace a la actividad 3 (Simulador de Ventas) -->
                     <li>
                         <a href="U4/act3.html" class="btn" onmouseover="loadPreview('U4/act3.html')">
-                            <i class='bx bxs-save' style="margin-right: 10px;"></i>
-                            Actividad 3 Almacenamiento de lista
+                            <i class='bx bxs-dollar-circle' style="margin-right: 10px;"></i>
+                            Actividad 3 Simulador de Ventas
+                        </a>
+                    </li>
+                    <!-- Enlace a la actividad 4 (Chat en Tiempo Real) -->
+                    <li>
+                        <a href="U4/act4.html" class="btn" onmouseover="loadPreview('U4/act4.html')">
+                            <i class='bx bx-chat' style="margin-right: 10px;"></i>
+                            Actividad 4 Chat en Tiempo Real
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <!-- Vista previa de la actividad (a la derecha) -->
+        <!-- Vista previa de las actividades (a la derecha) -->
         <div class="preview">
-            <h3 id="preview-title">Vista Previa</h3>
-            <iframe id="preview-frame" src="" frameborder="0"></iframe>
+            <h3 id="preview-title">Vista Previa</h3> <!-- Título de la vista previa -->
+            <iframe id="preview-frame" src="" frameborder="0"></iframe> <!-- Iframe que muestra la vista previa -->
         </div>
     </div>
 </section>
 
+<!-- Scripts -->
 <script>
-// Función para abrir/cerrar el menú
+/* Función para abrir/cerrar el menú en dispositivos móviles */
 document.getElementById("menu-icon").addEventListener("click", function (event) {
-    event.preventDefault();  // Evitar el comportamiento por defecto del enlace (si es necesario)
+    event.preventDefault();  // Evitar el comportamiento por defecto del enlace
     
     const navbar = document.querySelector(".navbar");
     const menuIcon = document.getElementById("menu-icon");
     
-    // Alternar la clase 'active' en el menú y el ícono del menú
+    // Alternar la clase 'active' en el menú y en el icono del menú
     navbar.classList.toggle("active");
-    menuIcon.classList.toggle("active"); // Cambiar el ícono para mostrar el menú abierto/cerrado
+    menuIcon.classList.toggle("active"); // Cambia el icono al abrir/cerrar el menú
 });
 
-// Función para cerrar el menú cuando se hace clic en un enlace
+/* Función para cerrar el menú cuando se hace clic en un enlace de la barra de navegación */
 const menuLinks = document.querySelectorAll('.navbar a');
 menuLinks.forEach(link => {
     link.addEventListener('click', function () {
@@ -205,15 +244,16 @@ menuLinks.forEach(link => {
         
         // Eliminar la clase 'active' para cerrar el menú
         navbar.classList.remove("active");
-        menuIcon.classList.remove("active"); // Restablecer el ícono
+        menuIcon.classList.remove("active"); // Restablecer el ícono del menú
     });
 });
 
-    function loadPreview(activityUrl) {
-        var iframe = document.getElementById('preview-frame');
-        iframe.src = activityUrl;
-        iframe.style.pointerEvents = 'none'; // Deshabilitar interacción
-    }
+/* Función para cargar la vista previa de una actividad en el iframe */
+function loadPreview(activityUrl) {
+    var iframe = document.getElementById('preview-frame');
+    iframe.src = activityUrl; // Establece el enlace de la actividad en el iframe
+    iframe.style.pointerEvents = 'none'; // Deshabilita la interacción dentro del iframe
+}
 </script>
 
 </body>
